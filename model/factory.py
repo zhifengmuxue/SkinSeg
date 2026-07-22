@@ -10,6 +10,7 @@ from model.ca_sa_unet import CASAUNet
 from model.cbam_sa_unet import CBAMSAUNet
 from model.sa_unet import SAUNet
 from model.unet import UNet
+from model.wgs_sa_unet import WGSSAUNet
 
 
 def build_model(cfg):
@@ -53,10 +54,17 @@ def build_model(cfg):
             out_channels=cfg.OUT_CHANNELS,
             **model_kwargs,
         )
+    elif model_type == "wgs_sa_unet":
+        model_kwargs.setdefault("base_filters", cfg.BASE_FILTERS)
+        model = WGSSAUNet(
+            in_channels=cfg.IN_CHANNELS,
+            out_channels=cfg.OUT_CHANNELS,
+            **model_kwargs,
+        )
     else:
         raise ValueError(
             f"不支持的模型类型: {cfg.MODEL_TYPE}，可选: "
-            f"'unet' / 'attention_unet' / 'sa_unet' / 'cbam_sa_unet' / 'ca_sa_unet'"
+            f"'unet' / 'attention_unet' / 'sa_unet' / 'cbam_sa_unet' / 'ca_sa_unet' / 'wgs_sa_unet'"
         )
 
     return model.to(cfg.DEVICE)

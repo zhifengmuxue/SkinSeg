@@ -12,7 +12,7 @@ img_size: 256
 # -----------------------------------------------------------------------------
 # 模型配置 (Model)
 # -----------------------------------------------------------------------------
-model_type: "unet"       # "unet" / "attention_unet" / "sa_unet" / "cbam_sa_unet" / "ca_sa_unet"
+model_type: "unet"       # "unet" / "attention_unet" / "sa_unet" / "cbam_sa_unet" / "ca_sa_unet" / "wgs_sa_unet"
 in_channels: 3
 out_channels: 1
 base_filters: 64         # 对 sa_unet 建议改为 16，更贴近论文轻量结构

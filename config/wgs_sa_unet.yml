@@ -12,7 +12,7 @@ img_size: 256
 # -----------------------------------------------------------------------------
 # 模型配置 (Model)
 # -----------------------------------------------------------------------------
-model_type: "sa_unet"
+model_type: "wgs_sa_unet"
 in_channels: 3
 out_channels: 1
 base_filters: 64
@@ -21,13 +21,16 @@ threshold: 0.5
 model_kwargs:
   drop_prob: 0.1
   block_size: 7
+  wavelet_prior_channels: 16
+  wavelet_use_abs_high: true
+  wavelet_fuse_into_edge: true
 
 # -----------------------------------------------------------------------------
 # 训练配置 (Train)
 # -----------------------------------------------------------------------------
 train:
   output_dir: "d:/code/segment/runs"
-  run_name: "sa_unet_isic2018"
+  run_name: "wgs_sa_unet_isic2018"
   resume: ""
   batch_size: 8
   num_epochs: 80
@@ -48,7 +51,7 @@ train:
 # 评估配置 (Eval)
 # -----------------------------------------------------------------------------
 eval:
-  run_dir: "d:/code/segment/runs/sa_unet_isic2018"
+  run_dir: "d:/code/segment/runs/wgs_sa_unet_isic2018"
   model_path: ""
   split: "test"
   batch_size: 8
@@ -57,19 +60,19 @@ eval:
 # 推理配置 (Predict)
 # -----------------------------------------------------------------------------
 predict:
-  run_dir: "d:/code/segment/runs/sa_unet_isic2018"
+  run_dir: "d:/code/segment/runs/wgs_sa_unet_isic2018"
   model_path: ""
   input_mode: "dir"
   input_dir: "d:/code/segment/dataset/ISIC2018_Task1-2_Test_Input"
   input_file: "d:/code/segment/dataset/ISIC2018_Task1-2_Validation_Input/ISIC_0012633.jpg"
-  output_dir: "d:/code/segment/runs/sa_unet_isic2018/predict"
+  output_dir: "d:/code/segment/runs/wgs_sa_unet_isic2018/predict"
 
 # -----------------------------------------------------------------------------
 # 导出可视化配置 (Export Visuals)
 # -----------------------------------------------------------------------------
 visualize:
-  run_dir: "d:/code/segment/runs/sa_unet_isic2018"
+  run_dir: "d:/code/segment/runs/wgs_sa_unet_isic2018"
   model_path: ""
   split: "test"
   num_samples: 50
-  output_dir: "d:/code/segment/runs/sa_unet_isic2018/visualizations"
+  output_dir: "d:/code/segment/runs/wgs_sa_unet_isic2018/visualizations"

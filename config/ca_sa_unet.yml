@@ -15,7 +15,7 @@ img_size: 256
 model_type: "ca_sa_unet"
 in_channels: 3
 out_channels: 1
-base_filters: 16
+base_filters: 64
 bilinear: true
 threshold: 0.5
 model_kwargs:
