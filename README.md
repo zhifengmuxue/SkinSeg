@@ -11,7 +11,6 @@
 | **SA-UNet** | 2020 | Dual-Attention Decoder + Gated Shape Stream |
 | **CBAM-SAUNet** | EMBC 2024 | CBAM 通道注意力替换 SE |
 | **CA-SAUNet** | 2025 | Coordinate Attention 替换 SE |
-| **WGS-SAUNet** | 本工作 | Haar DWT 小波先验注入 Shape Stream |
 
 ## 目录结构
 
@@ -168,17 +167,3 @@ train:
 - **Gated Shape Stream**：SAUNet 系列独有的边界引导通路，使用可学习空间门控
 - **WGS-SAUNet**：基于固定 Haar DWT 提取高频子带，编码为边界先验注入 Shape Stream
 
-## 引用
-
-```bibtex
-@article{ronneberger2015u,
-  title={U-Net: Convolutional Networks for Biomedical Image Segmentation},
-  author={Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
-  journal={arXiv preprint arXiv:1505.04597},
-  year={2015}
-}
-```
-
-## License
-
-MIT
